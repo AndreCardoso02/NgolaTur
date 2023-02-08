@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityRole>
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Lista de cidades</h1>
+
+@if (Model.Any())
+{
+    <p>
+        <a asp-action="Create">Adicionar nova</a>
+    </p>
+
+
+    foreach (var permissao in Model)
+                {
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5>@permissao.Name</h5>
+                        </div>
+                        <div class="card-body">
+                            <a asp-action="Edit" asp-controller="Permissoes" asp-route-id="@permissao.Id" class="btn btn-primary">
+                                Editar
+                            </a>
+                            <a asp-action="Delete" asp-controller="Permissoes" asp-route-id="@permissao.Id"  href="#" class="btn btn-danger">
+                                Eliminar
+                            </a>
+                        </div>
+                    </div>
+                }
+
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            Nenhuma permissão encontrada
+        </div>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            Use o botão abaixo para adicionar nova permissão
+        </h5>
+        <a asp-action="Create">
+            Adicionar nova
+        </a>
+    </div>
+}
+

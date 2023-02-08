@@ -1,0 +1,46 @@
+﻿@model NgolaTur.Models.PontoTuristico
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Criar</h1>
+
+<h4>Ponto Turistico</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomePontoTuristico" class="control-label"></label>
+                <input asp-for="NomePontoTuristico" class="form-control" />
+                <span asp-validation-for="NomePontoTuristico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCidade" class="control-label"></label>
+                <select asp-for="IdCidade" class="form-control"
+                        asp-items="@ViewBag.IdCidade"></select>
+                <span asp-validation-for="IdCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTipoPontoTuristico" class="control-label"></label>
+                <select asp-for="IdTipoPontoTuristico" class="form-control"
+                        asp-items="@ViewBag.IdTipoPontoTuristico"></select>
+                <span asp-validation-for="IdTipoPontoTuristico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar a listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

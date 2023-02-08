@@ -1,0 +1,59 @@
+﻿@model NgolaTur.ViewModels.EditRoleViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Permissão de Usuário</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RoleName" class="control-label"></label>
+                <input asp-for="RoleName" class="form-control" />
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Usuários que possuem esta permissão</h3>
+                </div>
+                <div class="card-body">
+                    @if (Model.Users.Any())
+                    {
+                        foreach (var user in Model.Users)
+                        {
+                            <h5 class="card-title">@user</h5>
+                        }
+                    }
+                    else
+                    {
+                        <h5 class="card-title text-center">Nenhum usuário possui esta permissão</h5>
+                    }
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Adicionar</a>
+                    <a href="#" class="btn btn-danger">Remover</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar a listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

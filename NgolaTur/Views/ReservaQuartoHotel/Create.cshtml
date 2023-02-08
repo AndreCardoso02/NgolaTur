@@ -1,0 +1,51 @@
+﻿@model NgolaTur.Models.ReservaQuartoHotel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Criar</h1>
+
+<h4>Reserva de Quarto de Hotel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DataEntrada" class="control-label"></label>
+                <input asp-for="DataEntrada" class="form-control" />
+                <span asp-validation-for="DataEntrada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataSaida" class="control-label"></label>
+                <input asp-for="DataSaida" class="form-control" />
+                <span asp-validation-for="DataSaida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTipoQuartoHotel" class="control-label"></label>
+                <select asp-for="IdTipoQuartoHotel" class="form-control"
+                        asp-items="@ViewBag.IdTipoQuartoHotel"></select>
+                <span asp-validation-for="IdTipoQuartoHotel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <select asp-for="IdUsuario" class="form-control"
+                        asp-items="@ViewBag.IdUsuario"></select>
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar a listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

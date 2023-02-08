@@ -1,0 +1,48 @@
+﻿@model IEnumerable<NgolaTur.Models.Restaurante>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Lista de restaurantes</h1>
+
+<p>
+    <a asp-action="Create">Adicionar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeRestaurante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCategoriaRestaurante)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeRestaurante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategoriaRestaurante)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+﻿@model NgolaTur.Models.TipoQuarto
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Editar</h1>
+
+<h4>Tipo de Quarto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NomeTipoQuarto" class="control-label"></label>
+                <input asp-for="NomeTipoQuarto" class="form-control" />
+                <span asp-validation-for="NomeTipoQuarto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdHotel" class="control-label"></label>
+                <select asp-for="IdHotel" class="form-control"
+                        asp-items="@ViewBag.IdHotel"></select>
+                <span asp-validation-for="IdHotel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar a listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

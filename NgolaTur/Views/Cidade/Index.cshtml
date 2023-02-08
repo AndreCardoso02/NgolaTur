@@ -1,0 +1,55 @@
+﻿@model IEnumerable<NgolaTur.Models.Cidade>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Lista de cidades</h1>
+
+<p>
+    <a asp-action="Create">Adicionar nova</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProvincia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Populacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoCidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProvincia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Populacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

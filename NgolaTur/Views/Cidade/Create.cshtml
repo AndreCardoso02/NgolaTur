@@ -1,0 +1,51 @@
+﻿@model NgolaTur.Models.Cidade
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<h1>Criar</h1>
+
+<h4>Cidade</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeCidade" class="control-label"></label>
+                <input asp-for="NomeCidade" class="form-control" />
+                <span asp-validation-for="NomeCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoCidade" class="control-label"></label>
+                <input asp-for="EstadoCidade" class="form-control" />
+                <span asp-validation-for="EstadoCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProvincia" class="control-label"></label>
+                <select asp-for="IdProvincia" class="form-control"
+                        asp-items="@ViewBag.IdProvincia"
+                        ></select>
+                <span asp-validation-for="IdProvincia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Populacao" class="control-label"></label>
+                <input asp-for="Populacao" class="form-control" />
+                <span asp-validation-for="Populacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar a listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
