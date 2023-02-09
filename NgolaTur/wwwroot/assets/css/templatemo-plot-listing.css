@@ -2,7 +2,6 @@
 
 TemplateMo 564 Plot Listing
 
-https://templatemo.com/tm-564-plot-listing
 
 */
 
@@ -275,20 +274,20 @@ header
   background: transparent;
 }
 
-.header-area .main-nav a.logo {
-  background-image: url(../images/white-logo.png);
-  width: 166px;
-  height: 58px;
-  display: inline-block;
-  margin-top: 20px;
-}
+    .header-area .main-nav a.logo {
+        background-image: url(../images/ngolaturlogo.png);
+        width: 166px;
+        height: 58px;
+        display: inline-block;
+        margin-top: 20px;
+    }
 
 .background-header .main-nav a.logo {
-  background-image: url(../images/black-logo.png);
-  width: 164px;
-  height: 58px;
-  display: inline-block;
-  margin-top: 10px;
+    background-image: url(../images/ngolaturlogo.png);
+    width: 164px;
+    height: 58px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .background-header .main-nav .nav {
@@ -2059,10 +2058,10 @@ responsive
   .main-banner ul.categories li a {
     color: transparent;
   }
-  .header-area .main-nav a.logo {
-    background-image: url(../images/black-logo.png);
-    float: left;
-  }
+    .header-area .main-nav a.logo {
+        background-image: url(../images/ngolaturlogo.png);
+        float: left;
+    }
   .header-area .logo {
     margin-left: 0px;
   }

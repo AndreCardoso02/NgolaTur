@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NgolaTur.Models;
+using NgolaTur.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,6 +44,12 @@ namespace NgolaTur.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult HomeDestaques()
+        {
+            var model = new HomeDestaquesViewModel();
+            return PartialView("_HomeDestaquesPartialView.cshtml", model);
         }
     }
 }
