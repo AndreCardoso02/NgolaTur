@@ -175,15 +175,24 @@
                             Privacidade e Segurança
                             <i class="right fas fa-angle-left"></i>
                         </p>
-                        <ul class="nav nav-treeview">
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Perfil</p>
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
                             <li class="nav-item">
                                 <a asp-area="" asp-controller="Permissoes" asp-action="Index" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Permissões</p>
+                                    <p>Permissões de Usuario</p>
                                 </a>
                             </li>
-                        </ul>
-                    </a>
+                        }
+                    </ul>
                 </li>
             </ul>
         </nav>

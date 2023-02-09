@@ -1,0 +1,49 @@
+﻿@using NgolaTur.ViewModels;
+@model List<UserRoleViewModel>
+
+@{
+    ViewData["Title"] = "Adicionar permissao ao usuário";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+
+    var roleId = ViewBag.roleId;
+}
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            <h1>Adicionar</h1>
+
+            <h4>Permissão aos Usuários</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <div class="row">
+                            <div class="col-md-8 offset-2">
+                                <input type="hidden" asp-for="@Model[i].UserId" />
+                                <input type="hidden" asp-for="@Model[i].UserName" />
+                                <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                                <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                                    @Model[i].UserName
+                                </label>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div>
+                <input type="submit" value="Guardar" class="btn btn-primary" style="width: auto" />
+                <a asp-action="Edit" asp-controller="Permissoes" asp-route-id="@roleId" class="btn btn-default">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

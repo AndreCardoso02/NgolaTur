@@ -22,7 +22,7 @@ namespace NgolaTur.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
+            if (User.IsInRole("Admin"))
                return RedirectToAction("IndexAdmin");
 
             return View();
